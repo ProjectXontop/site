@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/css/remixicon.min.css" type="text/css">
+    <link rel="stylesheet" href="Assets/css/style55.css" type="text/css">
+    <link rel="stylesheet" href="Assets/css/toast.css" type="text/css">
+    <link href="Assets/css/all.css" rel="stylesheet" type="text/css">
+    <script src="Assets/js/embed.js" type="text/javascript"></script>
+    <script src="Assets/js/toast.js" type="text/javascript"></script>
+    <title>ProjectX</title>
+    <meta property="og:title" content='ProjectX'>
+    <meta property="og:site_name" content='ProjectX'>
+    <meta property="og:url" content="https://nexus-2d12b.web.app/">
+    <meta property="og:description" content='ProjectX - High-quality tools and services.'>
+    <meta property="og:image" content="Assets/images/header.png">
+    <meta property="og:image:secure_url" content="Assets/images/header.png">
+    <meta property="og:image:type" content="image/jpeg"> 
+    <meta property="og:image:alt" content='ProjectX'>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <link rel="icon" type="image/x-icon" href="https://static.vecteezy.com/system/resources/previews/009/273/280/non_2x/concept-of-loneliness-and-disappointment-in-love-sad-man-sitting-element-of-the-picture-is-decorated-by-nasa-free-photo.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0e0e0e;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #e74c3c; /* Red color */
+            text-shadow: 0 0 5px rgba(231, 76, 60, 0.7);
+        }
+        .header img {
+            height: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #e74c3c; /* Red color */
+            transform: translateY(-2px);
+        }
+        .main-content, .sites-content, .methods-content, .about-content {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .active {
+            display: flex !important;
+            opacity: 1;
+        }
+        .main-content h2, .sites-content h2, .methods-content h2, .about-content h2 {
+            font-size: 2.5em;
+            color: #e74c3c; /* Red color */
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
+            font-weight: 700;
+        }
+        .main-content p, .sites-content p, .methods-content p, .about-content p {
+            font-size: 1.2em;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
+        .btn {
+            padding: 15px 30px;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #0e0e0e;
+            background-color: #e74c3c; /* Red color */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #c0392b; /* Darker red */
+            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.7);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.9);
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+        footer p {
+            margin: 0;
+            color: #ccc;
+        }
+        footer .socials a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+        footer .socials a:hover {
+            color: #e74c3c; /* Red color */
+            text-shadow: 0 0 8px #e74c3c;
+        }
+        .header, footer {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .main-content, .sites-content, .methods-content, .about-content {
+            animation: slideIn 0.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .site-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        .site-item {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        .site-item h3 {
+            color: #e74c3c; /* Red color */
+            margin-top: 0;
+        }
+        .site-item a {
+            color: #e74c3c; /* Red color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .site-item a:hover {
+            text-decoration: underline;
+        }
+        .more-soon {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ProjectX</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" data-target="home" class="nav-link">Home</a></li>
+                <li><a href="#" data-target="sites" class="nav-link">Sites</a></li>
+                <li><a href="#" data-target="methods" class="nav-link">Methods</a></li>
+                <li><a href="#" data-target="about" class="nav-link">About</a></li>
+                <li><a href="https://discord.gg/SU75grNae6" class="btn">Join Discord</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="main-content active" id="home">
+        <div class="container">
+            <h2>Welcome to ProjectX</h2>
+            <p>Discover the highest quality tools and services on the market!</p>
+            <a href="#" data-target="sites" class="btn nav-link">Get Started</a>
+        </div>
+    </div>
+
+    <div class="sites-content" id="sites">
+        <div class="container">
+            <h2>Our Sites</h2>
+            <div class="site-list">
+                <div class="site-item">
+                    <h3>Roblox KG Generator</h3>
+                    <a href="https://roblox.kg" target="_blank">Visit Site</a>
+                </div>
+                <div class="site-item">
+                    <h3>Roblox KG Generator</h3>
+                    <a href="https://roblox.kg" target="_blank">Visit Site</a>
+                </div>
+                <div class="site-item">
+                    <h3>Roblox KG Generator</h3>
+                    <a href="https://roblox.kg" target="_blank">Visit Site</a>
+                </div>
+                <div class="site-item">
+                    <h3>More Sites Coming Soon</h3>
+                    <p class="more-soon">Stay tuned for more amazing tools and services!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="methods-content" id="methods">
+        <div class="container">
+            <h2>Available Methods</h2>
+            <p>Explore various methods to enhance your experience with our tools.</p>
+            <a href="#" class="btn nav-link">Learn More</a>
+        </div>
+    </div>
+
+    <div class="about-content" id="about">
+        <div class="container">
+            <h2>About ProjectX</h2>
+            <p>ProjectX is a collection of the best online tools, created for a seamless user experience. Join our community and explore more!</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="socials">
+            <a href="https://discord.gg/SU75grNae6" target="_blank" class="ri-discord-fill">Discord</a>
+        </div>
+        <p>© 2024 ProjectX. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.active').forEach(content => content.classList.remove('active'));
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
